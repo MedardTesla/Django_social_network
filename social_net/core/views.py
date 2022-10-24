@@ -38,7 +38,7 @@ def index(request):
     user_following_all = []
     
     for user in user_following:
-        user_list = User.objects.get(username=user.user)
+        user_list = User.objects.filter(username=user.user)
         user_following_all.append(user_list)
         
     new_suggestion_list = [x for x in list(all_users) if (x not in list(user_following_all))]
@@ -252,3 +252,4 @@ def upload(request):
     else:
         return redirect('/')
     
+
